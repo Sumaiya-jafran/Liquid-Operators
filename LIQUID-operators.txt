@@ -1,0 +1,62 @@
+{% comment %}
+
+There is example of how LIQUID operators works as like another programming language.
+
+{% endcomment %}
+
+
+{% assign myVariable = "This is a variable" %}
+{{ myVariable}}
+<br>
+
+{% assign firstNumber =400 %}
+{% assign secondNumber = 200 %}
+{% assign thirdNumber = 600 %}
+<br>
+Addition = {{firstNumber | plus: secondNumber}}
+<br>
+Subtraction = {{firstNumber | minus: secondNumber}}
+<br>
+Product = {{firstNumber | times: secondNumber}}
+<br>
+Division = {{firstNumber | devided_by: secondNumber}}
+
+<br>
+{% if firstNumber > secondNumber %}
+   {% if firstNumber > thirdNumber %}
+    Greater Number is {{firstNumber}}
+   {% else %}
+    Greater Number is {{thirdNumber}}
+   {% endif %}
+
+{% elsif secondNumber > firstNumber %}
+    {% if secondNumber > thirdNumber %}
+    Greater Number is {{secondNumber}}
+   {% else %}
+    Greater Number is {{thirdNumber}}
+   {% endif %}
+
+{% else %}
+    Greater Number is {{secondNumber}}
+
+{% endif %}
+
+<br>
+
+
+{% for i in (1..10) %}
+
+	{% if forloop.first %}
+		The forloop index is first <br>
+	{% elsif forloop.last %}
+		The forloop index is last <br>
+	{% else %}
+		The forloop index is : {{forloop.index}} <br>
+
+	{% endif %}
+
+{% endfor %}
+
+{% for products in collections.women-bag.products %}
+{{products.title}}
+{% endfor %}
